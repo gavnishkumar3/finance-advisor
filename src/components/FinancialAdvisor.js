@@ -10,8 +10,8 @@ const FinancialAdvisor = () => {
   const handleFormSubmit = async (formData) => {
     setLoading(true);
     try {
-    
-      const response =await axios.post(`http://127.0.0.1:8000/generate-plan`,formData);
+
+      const response =await axios.post(`${process.env.REACT_APP_BASE_URI}/generate-plan`,formData);
       const data = response.data;      
       // 2. Set the report data to state
       console.log("Received report data:", data);
