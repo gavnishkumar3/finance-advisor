@@ -1,9 +1,8 @@
-import React from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { PlusCircle, Trash2, ArrowRight } from 'lucide-react';
 
 const IntakeForm = ({ onSubmit, isLoading }) => {
-  const { register, control, handleSubmit, formState: { errors } } = useForm({
+  const { register, control, handleSubmit } = useForm({
     defaultValues: {
       age: 25,
       marital_status: "Single",
