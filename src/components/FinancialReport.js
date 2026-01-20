@@ -56,8 +56,8 @@ const FinancialReport = ({ reportContent }) => {
       </div>
 
       {/* Report Container */}
-      <div 
-        ref={componentRef} 
+      <div
+        ref={componentRef}
         className="bg-white p-12 rounded-xl shadow-lg border border-gray-100 print-clean"
       >
         {/* Title */}
@@ -72,11 +72,21 @@ const FinancialReport = ({ reportContent }) => {
         <div className="markdown-content text-gray-700 leading-relaxed text-lg text-justify">
           <ReactMarkdown
             components={{
-              h3: ({ node, ...props }) => (
-                <h3 className="text-2xl font-bold text-blue-800 mt-8 mb-4 border-l-4 border-blue-600 pl-3 break-after-avoid" {...props} />
+              h3: ({ node, children, ...props }) => (
+                <h3
+                  className="text-2xl font-bold text-blue-800 mt-8 mb-4 border-l-4 border-blue-600 pl-3 break-after-avoid"
+                  {...props}
+                >
+                  {children}
+                </h3>
               ),
-              strong: ({ node, ...props }) => (
-                <strong className="font-bold text-gray-900 bg-yellow-100 px-1 rounded print:bg-transparent print:border-b-2 print:border-gray-800" {...props} />
+              strong: ({ node, children, ...props }) => (
+                <strong
+                  className="font-bold text-gray-900 bg-yellow-100 px-1 rounded print:bg-transparent print:border-b-2 print:border-gray-800"
+                  {...props}
+                >
+                  {children}
+                </strong>
               ),
               ul: ({ node, ...props }) => (
                 <ul className="list-disc list-inside space-y-2 mb-4 pl-4" {...props} />
@@ -95,10 +105,10 @@ const FinancialReport = ({ reportContent }) => {
             {reportContent}
           </ReactMarkdown>
         </div>
-        
+
         {/* Footer for the PDF */}
         <div className="mt-10 pt-6 border-t border-gray-100 text-center text-gray-400 text-sm hidden print:block">
-           <p>This report is AI-generated for informational purposes only.</p>
+          <p>This report is AI-generated for informational purposes only.</p>
         </div>
       </div>
     </div>
